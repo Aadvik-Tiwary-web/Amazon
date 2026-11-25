@@ -1,34 +1,40 @@
-# Uforia Market — React storefront demo
+# Uforia Market — Frontend Demo
 
-A responsive React + Vite storefront with separate page files and 30 original, local SVG product images.
+A React + Vite storefront with a responsive catalogue, product details, category/search filters, cart, wishlist, local demo account, and simulated checkout.
 
-## Run it
-1. Install Node.js LTS from https://nodejs.org/
-2. Extract this ZIP and open a terminal in the `uforia-market-react` folder.
-3. Run `npm install` then `npm run dev`.
-4. Open the local URL Vite prints (usually http://localhost:5173).
-5. Run `npm run build` to create a production build.
+## Run locally
 
-## Project structure
-```text
-public/image/             30 locally stored product illustrations
-src/components/           Header, Footer, ProductCard, EmptyState, shared store state
-src/data/products.js      Product catalog, prices, categories and image paths
-src/pages/Home.jsx        Homepage, search, category filters and sorting
-src/pages/ProductDetails.jsx
-src/pages/Cart.jsx
-src/pages/Wishlist.jsx
-src/pages/SignIn.jsx
-src/pages/Checkout.jsx
-src/pages/OrderSuccess.jsx
-src/pages/NotFound.jsx
-src/App.jsx               Route configuration and shared layout
-src/main.jsx              React entry point
-src/styles.css             Responsive styling
+Requirements: Node.js 20+ and npm.
+
+```bash
+npm install
+npm run dev
 ```
 
-## Editing products and images
-Edit `src/data/products.js` to change a product's name, price, category or description. Each product's `image` points to a file inside `public/image/`, for example `/image/01-headphones.svg`. Replace that SVG file with your own image using the same filename/path if you want to keep the product data unchanged. All 30 product image files are included in this ZIP; product images do not rely on external image websites. Google Fonts are loaded remotely for typography, with fallback fonts.
+Create a production bundle:
 
-## Demo limitations
-Cart and wishlist are saved in this browser using localStorage. Sign-in is a local demo only, not secure authentication. Checkout is simulated and does not take payment, submit orders or arrange delivery. Before launching a real store, add a backend, secure authentication, inventory, order handling, shipping and a payment provider. This sample brand/catalog is not affiliated with Amazon.
+```bash
+npm run build
+npm run preview
+```
+
+## Frontend-only scope
+
+- No backend, database, server API, real authentication, inventory, or payment processing.
+- Cart, wishlist, and demo account state are stored in the browser with `localStorage`.
+- Checkout creates only a local demonstration confirmation. No order is transmitted, no payment is collected, and nothing is shipped.
+- Product catalogue, prices, badges, and ratings are sample data. Ratings are illustrative and are not verified customer reviews.
+
+## Included quality improvements
+
+- Search matches product names, categories, descriptions, and catalogue badges.
+- Search field restores its value from the URL.
+- Browser storage is parsed defensively so malformed local data falls back safely.
+- Cart quantities are bounded to 1–99.
+- Demo checkout validates a six-digit PIN code.
+- Keyboard skip link, visible focus styles, reduced-motion support, and responsive refinements.
+- Original product illustrations and React Router page structure are preserved.
+
+## Important
+
+This is a frontend demonstration, not a production-ready commerce system. Real customer accounts, secure order handling, inventory, shipping, and payments require trusted server-side services and are intentionally out of scope.
